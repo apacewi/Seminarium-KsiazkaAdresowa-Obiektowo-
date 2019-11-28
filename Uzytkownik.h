@@ -1,6 +1,6 @@
+#ifndef UZYTKOWNIK_H
+#define UZYTKOWNIK_H
 #include <iostream>
-#include <fstream>
-#include <sstream>
 
 using namespace std;
 
@@ -17,3 +17,4 @@ public:
     string pobierzLogin();
     string pobierzHaslo();
 };
+#endif // UZYTKOWNIK_H
