@@ -2,6 +2,10 @@
 #include <windows.h>
 #include <fstream>
 #include <sstream>
+KsiazkaAdresowa::KsiazkaAdresowa()
+{
+    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+}
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenedzer.rejestracjauzytkownika();

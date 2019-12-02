@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <cstdlib>
 
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
@@ -18,6 +19,8 @@ class PlikZUzytkownikami
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
  public:
      PlikZUzytkownikami();
+    void wczytajUzytkownikowZPliku(vector <Uzytkownik> &uzytkownicy);
+    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
 };
 #endif
