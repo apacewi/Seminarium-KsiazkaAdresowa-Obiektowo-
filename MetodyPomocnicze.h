@@ -7,6 +7,9 @@ using namespace std;
 class MetodyPomocnicze
 {
     public:
-   static string konwerjsaIntNaString(int liczba);
+    static string konwerjsaIntNaString(int liczba);
+    string wczytajLinie();
+    string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    int konwersjaStringNaInt(string liczba);
 };
 #endif

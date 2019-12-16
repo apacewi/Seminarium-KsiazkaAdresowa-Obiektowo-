@@ -63,3 +63,66 @@ void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
 {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
+int UzytkownikMenedzer::logowanieUzytkownika()
+{
+    MetodyPomocnicze metodyPomocnicze;
+    int i = 0;
+    string login = "", haslo = "";
+
+    cout << endl << "Podaj login: ";
+    login = metodyPomocnicze.wczytajLinie();
+
+    while (i < uzytkownicy.size())
+    {
+        if (uzytkownicy[i].pobierzLogin() == login)
+        {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--)
+            {
+                cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
+                haslo = metodyPomocnicze.wczytajLinie();
+
+                if (uzytkownicy[i].pobierzHaslo() == haslo)
+                {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    idZalogowanegoUzytkownika = uzytkownicy[i].pobierzId();
+                    return idZalogowanegoUzytkownika;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return 0;
+        }
+        i++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return 0;
+}
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
+{
+    MetodyPomocnicze metody;
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = metody.wczytajLinie();
+
+    for (int i = 0; i < uzytkownicy.size(); i++)
+    {
+        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
+        {
+            uzytkownicy[i].ustawHaslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+void UzytkownikMenedzer::wylogujUzytkownika()
+{
+    idZalogowanegoUzytkownika = 0;
+    cout << "Wylogowales sie. " << endl;
+}
+int UzytkownikMenedzer::pobierzIdUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
+}

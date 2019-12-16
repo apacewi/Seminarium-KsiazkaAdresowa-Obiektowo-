@@ -13,7 +13,6 @@
     {
         haslo = noweHaslo;
     }
-
     int Uzytkownik::pobierzId()
     {
         return id;
