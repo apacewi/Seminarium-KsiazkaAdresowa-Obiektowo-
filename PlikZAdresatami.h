@@ -5,31 +5,36 @@
 #include <fstream>
 #include <cstdlib>
 
+#include "PlikTekstowy.h"
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
 
-class PlikZAdresatami
-{
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
+class PlikZAdresatami:public PlikTekstowy {
+    string nazwaTymczasowegoPlikuZAdresatami;
     fstream plikTekstowy;
     int idZalogowanegoUzytkownika;
     int idOstatniegoAdresata;
     vector <Adresat> adresaci;
-
     MetodyPomocnicze metodyPomocnicze;
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    bool czyPlikJestPusty();
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     void wyswietlDaneAdresata(Adresat adresat);
- public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami, int idUzytkownika) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(idUzytkownika) {};
+    void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+    void usunPlik(string nazwaPlikuZRozszerzeniem);
+  public:
+    PlikZAdresatami(string nazwaPlikuZAdresatami, int idUzytkownika) : PlikTekstowy(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(idUzytkownika) {
+        nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowy.txt";
+    };
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    void edytujWybranaLinieWPliku(int idAdresata, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-    void wyswietlWszystkichAdresatow();
     void dopiszAdresataDoPliku(Adresat adresat);
+    vector <Adresat> pobierzWektorZAdresatami();
+    void usunWybranaLinieWPliku(int idAdresata);
+
 };
 #endif

@@ -11,5 +11,7 @@ class MetodyPomocnicze
     string wczytajLinie();
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     int konwersjaStringNaInt(string liczba);
+    int wczytajLiczbeCalkowita();
+    char wczytajZnak();
 };
 #endif

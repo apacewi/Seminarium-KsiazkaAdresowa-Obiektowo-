@@ -4,11 +4,11 @@
 
 using namespace std;
 
-class Adresat
-{
+class Adresat {
+  public:
     int idAdresata, numerTelefonu, idUzytkownika;
     string imie, nazwisko, adres, email;
-public:
+  public:
     void ustawIdAdresata(int noweId);
     void ustawIdUzytkownika(int noweId);
     void ustawImie(string noweImie);

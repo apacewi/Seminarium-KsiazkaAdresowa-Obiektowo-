@@ -1,60 +1,46 @@
 #include "Adresat.h"
 
-void Adresat::ustawIdAdresata(int noweId)
-{
+void Adresat::ustawIdAdresata(int noweId) {
     if (noweId >= 0)
-    idAdresata = noweId;
+        idAdresata = noweId;
 }
-void Adresat::ustawIdUzytkownika(int noweId)
-{
+void Adresat::ustawIdUzytkownika(int noweId) {
     if (noweId >= 0)
-    idUzytkownika = noweId;
+        idUzytkownika = noweId;
 }
-void Adresat::ustawImie(string noweImie)
-{
+void Adresat::ustawImie(string noweImie) {
     imie = noweImie;
 }
-void Adresat::ustawNazwisko(string noweNazwisko)
-{
+void Adresat::ustawNazwisko(string noweNazwisko) {
     nazwisko = noweNazwisko;
 }
-void Adresat::ustawEmail(string nowyEmail)
-{
+void Adresat::ustawEmail(string nowyEmail) {
     email = nowyEmail;
 }
-void Adresat::ustawAdres(string nowyAdres)
-{
+void Adresat::ustawAdres(string nowyAdres) {
     adres = nowyAdres;
 }
-void Adresat::ustawNumerTelefonu(int nowyNumerTelefonu)
-{
+void Adresat::ustawNumerTelefonu(int nowyNumerTelefonu) {
     numerTelefonu = nowyNumerTelefonu;
 }
-int Adresat::pobierzIdAdresata()
-{
+int Adresat::pobierzIdAdresata() {
     return idAdresata;
 }
-int Adresat::pobierzIdUzytkownika()
-{
+int Adresat::pobierzIdUzytkownika() {
     return idUzytkownika;
 }
-string Adresat::pobierzImie()
-{
+string Adresat::pobierzImie() {
     return imie;
 }
-string Adresat::pobierzNazwisko()
-{
+string Adresat::pobierzNazwisko() {
     return nazwisko;
 }
-string Adresat::pobierzEmail()
-{
+string Adresat::pobierzEmail() {
     return email;
 }
-string Adresat::pobierzAdres()
-{
+string Adresat::pobierzAdres() {
     return adres;
 }
-int Adresat::pobierzNumerTelefonu()
-{
+int Adresat::pobierzNumerTelefonu() {
     return numerTelefonu;
 }

@@ -3,38 +3,54 @@
 #include <fstream>
 #include <sstream>
 
-void KsiazkaAdresowa::zmienHaslo()
-{
+void KsiazkaAdresowa::zmienHaslo() {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
-void KsiazkaAdresowa::logowanieUzytkownika()
-{
+void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
     adresaciMenedzer = new AdresaciMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdUzytkownika());
 }
-void KsiazkaAdresowa::rejestracjaUzytkownika()
-{
+void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjauzytkownika();
 }
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
-{
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
-void KsiazkaAdresowa::wylogujUzytkownika()
-{
+void KsiazkaAdresowa::wylogujUzytkownika() {
     uzytkownikMenedzer.wylogujUzytkownika();
 }
-void KsiazkaAdresowa::dodajAdresata()
-{
+void KsiazkaAdresowa::dodajAdresata() {
     adresaciMenedzer->dodajAdresata();
 }
-void KsiazkaAdresowa::wyswietlAdresatow()
-{
+void KsiazkaAdresowa::wyswietlAdresatow() {
     adresaciMenedzer->wyswietlAdresatow();
 }
-KsiazkaAdresowa::~KsiazkaAdresowa()
-    {
-        delete adresaciMenedzer;
-        adresaciMenedzer = NULL;
-    }
-
+KsiazkaAdresowa::~KsiazkaAdresowa() {
+    delete adresaciMenedzer;
+    adresaciMenedzer = NULL;
+}
+void KsiazkaAdresowa::usunAdresata() {
+    adresaciMenedzer->usunAdresata();
+};
+void KsiazkaAdresowa::edytujAdresata() {
+    adresaciMenedzer -> edytujAdresata();
+};
+char KsiazkaAdresowa::wyswietlMenuLogowania() {
+    wybor = menedzerMenu.wybierzOpcjeZMenuGlownego();
+    return wybor;
+}
+char KsiazkaAdresowa::wyswietlMenuAdresata() {
+    wybor = menedzerMenu.wybierzOpcjeZMenuUzytkownika();
+    return wybor;
+}
+int KsiazkaAdresowa::pobierzIdUzytkownika() {
+    int idUzytkownika = 0;
+    idUzytkownika = uzytkownikMenedzer.pobierzIdUzytkownika();
+    return idUzytkownika;
+}
+void KsiazkaAdresowa::wyszukajAdresataPoImieniu() {
+    adresaciMenedzer -> wyszukajPoImieniu();
+}
+void KsiazkaAdresowa::wyszukajAdresataPoNazwisku() {
+    adresaciMenedzer -> wyszukajPoNazwisku();
+}
