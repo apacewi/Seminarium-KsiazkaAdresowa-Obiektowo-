@@ -7,6 +7,9 @@ Adresat AdresaciMenedzer::podajDaneNowegoAdresata() {
     adresat.ustawIdAdresata(++idOstatniegoAdresata);
     adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
 
+    cout << "ID OSTATNIEGO ADRESATA: " << idOstatniegoAdresata;
+    system("Pause");
+
     cout << "Podaj imie: ";
     adresat.ustawImie(metodyPomocnicze.wczytajLinie());
     adresat.ustawImie(metodyPomocnicze.zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImie()));
@@ -38,8 +41,6 @@ void AdresaciMenedzer::dodajAdresata() {
     system("cls");
     cout << "ADRESAT ZOSTAL DODANY! " << endl << endl;
     system("PAUSE");
-
-    ++idOstatniegoAdresata;
 }
 void AdresaciMenedzer::wyswietlAdresatow() {
     system("cls");
