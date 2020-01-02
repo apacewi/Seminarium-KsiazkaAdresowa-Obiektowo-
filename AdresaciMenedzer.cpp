@@ -72,7 +72,6 @@ int AdresaciMenedzer::usunAdresata() {
     idUsuwanegoAdresata = podajIdWybranegoAdresata();
     char znak;
     bool czyIstniejeAdresat = false;
-    int ostatniAdresat = adresaci.size()-1;
 
     for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
         if (itr -> pobierzIdAdresata() == idUsuwanegoAdresata) {
@@ -82,8 +81,7 @@ int AdresaciMenedzer::usunAdresata() {
             if (znak == 't') {
                 plikZAdresatami.usunWybranaLinieWPliku(idUsuwanegoAdresata);
                 adresaci.erase(itr);
-                if (adresaci[adresaci.size()-1].pobierzIdAdresata() != adresaci[ostatniAdresat].pobierzIdAdresata()) {
-                    idOstatniegoAdresata--;}
+                idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
                 system("cls");
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
