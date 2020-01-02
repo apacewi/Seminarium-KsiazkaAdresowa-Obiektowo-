@@ -22,6 +22,7 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
+    fstream plikTekstowy;
     string liniaZDanymiAdresata = "";
     plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out | ios::app);
 

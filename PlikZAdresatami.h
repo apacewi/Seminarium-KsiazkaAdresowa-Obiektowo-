@@ -13,7 +13,6 @@ using namespace std;
 
 class PlikZAdresatami:public PlikTekstowy {
     string nazwaTymczasowegoPlikuZAdresatami;
-    fstream plikTekstowy;
     int idZalogowanegoUzytkownika;
     int idOstatniegoAdresata;
     vector <Adresat> adresaci;

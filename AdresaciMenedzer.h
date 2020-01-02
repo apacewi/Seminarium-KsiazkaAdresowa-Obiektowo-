@@ -2,8 +2,8 @@
 #define ADRESACIMENEDZER_H
 #include <iostream>
 #include <vector>
-#include "Adresat.h"
 
+#include "Adresat.h"
 #include "MetodyPomocnicze.h"
 #include "PlikZAdresatami.h"
 #include "MenedzerMenu.h"
